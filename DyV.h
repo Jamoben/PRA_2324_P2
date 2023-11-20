@@ -21,6 +21,7 @@ int BusquedaBinaria(T x, std::vector<T>& v, int ini, int fin){
         }
 }
 
+template <typename T>
 int BusquedaBinaria_INV(T x, vector<T>& v,int ini, int fin){
         if(ini > fin){
                 throw ("No se encuentra en el array");
@@ -37,4 +38,34 @@ int BusquedaBinaria_INV(T x, vector<T>& v,int ini, int fin){
         }else{
 		return BusquedaBinaria_INV(x, v, medio +1, fin);
         }
+}
+
+template <typename T>
+int Partition(vector<T>& v, int ini, int fin){
+        T x = v[fin];
+        int i = ini;
+
+        for(int j = ini; j < fin ; j++){
+                if(v[j] <= x){
+                        T aux = v[j];
+                        v[j] = v[i];
+                        v[i] = aux;
+			i= i + 1;
+                }
+        }
+        T aux = v[i];
+        v[i] = v[fin];
+        v[fin] = aux;
+        return i;
+}
+
+template <typename T>
+
+void QuickSort(vector<T>& v, int ini, int fin){
+	if(ini < fin){
+		int pivot = Partition(v, ini, fin);
+		QuickSort(v, ini, pivot -1);
+		quickSort(v, pivot +1, fin);
+
+	}
 }
