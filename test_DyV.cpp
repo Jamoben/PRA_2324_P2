@@ -4,6 +4,8 @@
 
 int main(){
 
+        /*PRUEBAS BUSQUEDA BINARIA*/
+        
         vector<char> c = {'a','b','c','d','e','f','g','h'};
         vector<int> v = {1,2,3,4,5,6,7,8,9};
         vector<double> d = {1.0,2.0,3.0,4.0,5.0};
@@ -12,7 +14,7 @@ int main(){
         int  sec = BusquedaBinaria(7, v, 0, 8);
         double ter = BusquedaBinaria(3.0, d, 0, 4);
 
-        std:: cout << "%c %d %f" << prim, sec, ter << std::endl;   
+        std:: cout << "%c %d %f" << prim, sec, ter << std:: endl;   
 
         vector<char> ic = {'h','g','f','e','d','c','b','a',};
         vector<int> iv = {9,8,7,6,5,4,3,2,1};
@@ -21,4 +23,19 @@ int main(){
         char iprim = BusquedaBinaria("b", ic, 0, 7);
         int  isec = BusquedaBinaria(7, iv, 0, 8);
         double iter = BusquedaBinaria(3.0, id, 0, 4);
+
+        std:: cout << "%c %d %f" << iprim, isec, iter << std:: endl;
+        
+        /* PRUEBAS QUICKSORT*/
+
+        vector<char> QSc = {'c','b','e','h','a','e','f','d','g'};
+        vector<int> QSv = {2,5,3,1,8,7,4,6,9};
+        vector<double> QSd = {4.0,1.0,5.0,2.0,3.0};
+
+        char QSprim = QuickSort("b", QSc, 0, 7);
+        int  QSsec = QuickSort(7, QSv, 0, 8);
+        double QSter = QuickSort(3.0, QSd, 0, 4);
+
+        std:: cout << "%c %d %f" << QSprim, QSsec, QSter << std:: endl;
+        
 }
