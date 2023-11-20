@@ -16,7 +16,7 @@ int main(){
 
         std:: cout << "%c %d %f" << prim, sec, ter << std:: endl;   
 
-        vector<char> ic = {'h','g','f','e','d','c','b','a',};
+        vector<char> ic = {'h','g','f','e','d','c','b','a'};
         vector<int> iv = {9,8,7,6,5,4,3,2,1};
         vector<double> id = {5.0,4.0,3.0,2.0,1.0};
 
@@ -28,14 +28,53 @@ int main(){
         
         /* PRUEBAS QUICKSORT*/
 
-        vector<char> QSc = {'c','b','e','h','a','e','f','d','g'};
+        vector<char> QSc = {'c','b','e','h','a','f','d','g'};
         vector<int> QSv = {2,5,3,1,8,7,4,6,9};
         vector<double> QSd = {4.0,1.0,5.0,2.0,3.0};
 
-        char QSprim = QuickSort("b", QSc, 0, 7);
-        int  QSsec = QuickSort(7, QSv, 0, 8);
-        double QSter = QuickSort(3.0, QSd, 0, 4);
+        QuickSort(QSc, 0, 7);
+        for(int i = 0; i < 8; i++){
+		cout << i  << QSc[i] << endl;
+        }
+        
+        QuickSort(QSv, 0, 8);
+        for(int i = 0; i < 9; i++){
+		cout << i  << QSc[i] << endl;
+        }
 
-        std:: cout << "%c %d %f" << QSprim, QSsec, QSter << std:: endl;
+        QuickSort(QSd, 0, 4);
+        for(int i = 0; i < 5; i++){
+		cout << i  << QSc[i] << endl;
+        }
+
+        auto start = std::chrono::system_clock::now();
+	vector<char> QSFc = {'c','b','e','h','a','f','d','g'};
+        QuickSort_FIRST(QSFc, 0, 7);
+        for(int i = 0; i < 7; i++){
+		cout << i  << QSFc[i] << endl;
+        }
+        auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float, std::milli> duration = end - start;
+	cout << "Time: " << duration.count() << "s" << std::endl;
+
+        auto start = std::chrono::system_clock::now();
+	vector<int> QSFv = {2,5,3,1,8,7,4,6,9};
+        QuickSort_FIRST(QSFv, 0, 8);
+        for(int i = 0; i < 9; i++){
+		cout << i  << QSFv[i] << endl;
+        }
+        auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float, std::milli> duration = end - start;
+	cout << "Time: " << duration.count() << "s" << std::endl;
+
+        auto start = std::chrono::system_clock::now();
+	vector<int> QSFd = {4.0,1.0,5.0,2.0,3.0};
+        QuickSort_FIRST(QSFd, 0, 4);
+        for(int i = 0; i < 5; i++){
+		cout << i  << QSFd[i] << endl;
+        }
+        auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float, std::milli> duration = end - start;
+	cout << "Time: " << duration.count() << "s" << std::endl;
         
 }
