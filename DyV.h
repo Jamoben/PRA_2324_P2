@@ -69,3 +69,33 @@ void QuickSort(vector<T>& v, int ini, int fin){
 
 	}
 }
+
+template<typename T>
+int Partition_FIRST(vector<T>& v, int ini, int fin){
+    T x = v[ini];
+    int i = ini;
+	
+    for(int j = ini + 1; j <= fin; j++) {
+        if(v[j] < x) {
+             i++;
+             T aux = v[j];
+             v[j] = v[i];
+             v[i] = aux;
+        }
+     }
+     T aux = v[j];
+     v[j] = v[i];
+     v[i] = aux;
+     return i;
+}
+
+
+template<typename T>
+void QuickSort_FIRST(vector<T>& v, int ini, int fin){
+        if(ini < fin){
+                int pivot = Partition_FIRST(v, ini, fin);
+                QuickSort_FIRST(v, ini, pivot -1);
+                QuickSort_FIRST(v, pivot +1, fin);
+
+        }
+}
